@@ -4,4 +4,30 @@ sudo chmod 440 /etc/sudoers.d/99-jenkins-nopasswd
 sudo visudo -c   # Validate syntax
 
 
+# SSH permissions (must be strict)
+sudo chown -R jenkins:jenkins /home/jenkins/.ssh
+ chmod 700 /home/jenkins/.ssh
+sudo chmod 600 /home/jenkins/.ssh/authorized_keys
+
+# Add jenkins to wheel (for RHEL/CentOS/Amazon Linux)
+sudo usermod -aG wheel jenkins
+
+# Allow passwordless sudo for jenkins (only this user)
+echo 'jenkins ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/99-jenkins-nopasswd
+sudo chmod 440 /etc/sudoers.d/99-jenkins-nopasswd
+
+# Validate sudoers syntax
+sudo visudo -c
+
+
+=====================
+
+
+
+sudo usermod -aG wheel jenkins
+
+
+
+
+
 
