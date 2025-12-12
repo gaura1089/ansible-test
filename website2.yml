@@ -4,7 +4,7 @@
   hosts: webservers
   remote_user: jenkins     # or omit and set in inventory
   become: yes
-  become_method: sudo
+  
 
   tasks:
     - name: Install httpd
