@@ -1,0 +1,7 @@
+
+echo 'jenkins ALL=(ALL) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/99-jenkins-nopasswd
+sudo chmod 440 /etc/sudoers.d/99-jenkins-nopasswd
+sudo visudo -c   # Validate syntax
+
+
+
