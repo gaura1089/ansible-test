@@ -1,0 +1,24 @@
+
+---
+- name: Apache server installation
+  hosts: webservers
+  remote_user: jenkins     # or omit and set in inventory
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: Install httpd
+      yum:
+        name: httpd
+        state: present
+
+    - name: Start and enable httpd
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+    - name: Create index.html
+      copy:
+        dest: /var/www/html/index.html
+        content: "<h1> Hare Krishna Hare Krishna Krishna Krishna Hare Hare, Hare Rama Hare Rama Rama Rama Hare Hare </h1>"
