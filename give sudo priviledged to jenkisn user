@@ -27,6 +27,14 @@ sudo visudo -c
 sudo usermod -aG wheel jenkins
 
 
+=====================
+
+in jenkind configuration to allow jenkins to run sudo commands 
+we need to add in extra varibale as "jenkins_become_pass
+then password of jenkins : paswd@123
+
+
+
 
 
 
